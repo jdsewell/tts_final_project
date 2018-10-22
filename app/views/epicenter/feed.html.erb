@@ -1,0 +1,14 @@
+<div>
+	<% if current_user.following.empty? %>
+    	<h3>You're not following anyone! Take a look at the General Feed <%= link_to 'Here', index_path, class: "btn btn-default" %></h3>
+    <% end %>
+	<% if user_signed_in? %>
+	<% @following_posts.each do |post| %>
+		<div class="post">
+			<h3><%= post.user.username %></h3>
+			<p><%= post.message.html_safe %></p>
+		</div>
+		<br>
+	<% end %>
+	<% end %>
+</div>
