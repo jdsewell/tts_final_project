@@ -1,19 +1,30 @@
 <p id="notice"><%= notice %></p>
-
+<% if user_signed_in? == false %>
+  <div>
+    <h2>You can see the content of this site without a profile, but you'll have to Log In or Sign Up for full functionality</h2>
+  </div>
+  <%= link_to "Log In", new_user_session_path, class: "btn btn-default" %><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default" %>
+<% end %>
 <h1>Posts</h1>
 
-<div class="post">
+
   <% @posts.each do |post| %>
+    <div class="post">
     <h3><%= link_to post.user.username, show_user_path(id: post.user_id) %></h3>
     <p><%= post.message %></p>
     <p>
       <%= link_to 'Show', post %>
+      <% if user_signed_in? %>
       <% if current_user.id == post.user_id %>
       <%= link_to 'Edit', edit_post_path(post) %>
       <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
+      <% end %>
     </p>
+    </div>
+    <br>
   <% end %>
-</div>
-  
+
+<% if user_signed_in? %>  
 <%= link_to 'New Post', new_post_path %>
+<% end %>

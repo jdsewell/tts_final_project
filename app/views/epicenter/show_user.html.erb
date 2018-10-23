@@ -4,19 +4,19 @@
 <p><%= @user.bio %></p>
 
 <p>
-
+    <% if user_signed_in? %>
     <% if current_user.following.include?(@user.id) %>
-        <%= link_to "Unfollow", unfollow_path(id: @user.id), class: "btn btn-danger" %>
+        <%= link_to "Unfollow", unfollow_path(id: @user.id), class: "btn btn-danger following" %>
     <% else %>
         <% if current_user.id != @user.id %>
-	    <%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary" %>
+	    <%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary following" %>
 		<% end %>
+    <% end %>
     <% end %>
 </p>
 
 <% @user.posts.each do |post| %>
-    <div>
-        <p>@<%= @user.username %></p>
-		<p><%= post.message %></p>
+    <div class="post">
+        <p><%= post.message %></p>
     </div>
 <% end %>

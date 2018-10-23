@@ -1,13 +1,16 @@
 class EpicenterController < ApplicationController
-  before_action :authenticate_user!
   def feed
-    @following_posts = []
+    if user_signed_in?
+      @following_posts = []
 
-  	Post.all.each do |post|
-  		if current_user.following.include?(post.user_id) || current_user.id == post.user_id
-  			@following_posts.push(post)
-  		end
-  	end
+  	  Post.all.each do |post|
+  		  if current_user.following.include?(post.user_id) || current_user.id == post.user_id
+  			   @following_posts.push(post)
+  		  end
+  	 end
+    else
+      redirect_to index_path
+    end
   end
 
   def show_user
