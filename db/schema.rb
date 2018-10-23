@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_200702) do
-
-  create_table "book_tags", force: :cascade do |t|
-    t.string "user_id"
-    t.string "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2018_10_23_004919) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
