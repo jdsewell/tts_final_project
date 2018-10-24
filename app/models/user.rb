@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_many :posts
   has_many :books
   serialize :following, Array
+  serialize :book_list, Array
   validates :username, presence: true, uniqueness: true
 end
