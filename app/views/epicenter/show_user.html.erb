@@ -14,9 +14,13 @@
     <% end %>
     <% end %>
 </p>
-
+<div class="row">
 <% @user.posts.each do |post| %>
+    <div class="col-xs-6">
     <div class="post">
         <p><%= post.message %></p>
     </div>
+    <br>
+    </div>
 <% end %>
+</div>

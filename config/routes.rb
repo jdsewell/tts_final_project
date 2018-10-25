@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   root 'epicenter#feed'
 
+  get 'all_users' => 'posts#users'
 
   resources :posts
   resources :books
