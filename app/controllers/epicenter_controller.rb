@@ -30,4 +30,28 @@ class EpicenterController < ApplicationController
 
     redirect_to show_user_path(id: params[:id])
   end
+  def user_books
+    @user = User.find(params[:id])
+    @book_list = []
+
+    Book.all.each do |book|
+      if @user.book_list.include?(book.id)
+        @book_list.push(book)
+      end
+    end
+  end
+
+  def add_book
+    current_user.book_list.push(params[:id].to_i)
+    current_user.save
+
+    redirect_to show_book_path(id: params[:id])
+  end
+
+  def remove_book
+    current_user.book_list.delete(params[:id].to_i)
+    current_user.save
+
+    redirect_to show_book_path(id: params[:id])
+  end
 end
