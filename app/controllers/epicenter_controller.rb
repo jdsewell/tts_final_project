@@ -42,6 +42,10 @@ class EpicenterController < ApplicationController
 
   def user_books
     @user = User.find(params[:id])
+    if @user.id == current_user.id
+      redirect_to your_books_path(id: current_user.id)
+    end
+
     @book_list = []
 
     Book.all.each do |book|
