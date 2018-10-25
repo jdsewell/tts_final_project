@@ -25,9 +25,7 @@
     <% if current_user.book_list.include?(@book.id) %>
         <%= link_to "Remove", remove_path(id: @book.id), class: "btn btn-danger following" %>
     <% else %>
-        <% if current_user.id != @book.id %>
 	    <%= link_to "Add", add_path(id: @book.id), class: "btn btn-primary following" %>
-		<% end %>
     <% end %>
     <% end %>
 </p>

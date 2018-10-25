@@ -9,7 +9,11 @@
 		<h5><%= book.author %></h5>
 		<p><%= book.page_length %> pages</p>
 		<p><%= book.rating %></p>
+		<p>
+    	<%= link_to "Remove", remove_path(id: book.id), class: "btn btn-danger following" %>
+		</p>
 	</div>
+	<br>
 	</div>
 <% end %>
 </div>

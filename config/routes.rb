@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'add' => 'epicenter#add_book'
   get 'remove' => 'epicenter#remove_book'
   get 'user_books' => 'epicenter#user_books'
+  get 'your_books' => 'epicenter#your_books'
   
   get 'books' => 'books#index'
   get 'show_book' => 'books#show'

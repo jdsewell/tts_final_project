@@ -30,6 +30,16 @@ class EpicenterController < ApplicationController
 
     redirect_to show_user_path(id: params[:id])
   end
+
+  def your_books
+    @book_list =[]
+    Book.all.each do |book|
+      if current_user.book_list.include?(book.id)
+        @book_list.push(book)
+      end
+    end
+  end
+
   def user_books
     @user = User.find(params[:id])
     @book_list = []
@@ -45,13 +55,13 @@ class EpicenterController < ApplicationController
     current_user.book_list.push(params[:id].to_i)
     current_user.save
 
-    redirect_to show_book_path(id: params[:id])
+    redirect_back(fallback_location: root_path)
   end
 
   def remove_book
     current_user.book_list.delete(params[:id].to_i)
     current_user.save
 
-    redirect_to show_book_path(id: params[:id])
+    redirect_back(fallback_location: root_path)
   end
 end
