@@ -2,7 +2,7 @@
 
 <p><%= @user.name %></p>
 <p><%= @user.bio %></p>
-<p><%= link_to "#{@user.username}'s Books", user_books_path(id: @user.id), class: "btn btn-default" %></p>
+<p><%= link_to "#{@user.username}'s Books", user_books_path(id: @user.id), class: "btn btn-default" %><%= link_to 'Follows', following_path(id: @user.id) %></p>
 <p>
     <% if user_signed_in? %>
     <% if current_user.following.include?(@user.id) %>

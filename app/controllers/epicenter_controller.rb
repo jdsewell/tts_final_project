@@ -31,6 +31,17 @@ class EpicenterController < ApplicationController
     redirect_to show_user_path(id: params[:id])
   end
 
+  def following
+    @user = User.find(params[:id])
+    @users = User.all
+    @following = []
+    @users.each do |user|
+      if @user.following.include?(user.id)
+        @following.push(user)
+      end
+    end
+  end
+
   def your_books
     @book_list =[]
     Book.all.each do |book|

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'show_user' => 'epicenter#show_user'
   get 'now_following' => 'epicenter#now_following'
   get 'unfollow' => 'epicenter#unfollow'
+  get 'following' => 'epicenter#following'
   get 'add' => 'epicenter#add_book'
   get 'remove' => 'epicenter#remove_book'
   get 'user_books' => 'epicenter#user_books'
