@@ -41,6 +41,15 @@ class EpicenterController < ApplicationController
       end
     end
   end
+  def followers
+    @user = User.find(params[:id])
+    @followers = []
+    User.all.each do |user|
+      if user.following.include?(@user.id)
+        @followers.push(user)
+      end
+    end
+  end
 
   def your_books
     @book_list =[]
