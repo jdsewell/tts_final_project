@@ -1,23 +1,23 @@
 <% @following.each do |user| %>
-	<div class="user">
-	<div class="row">
-	<div class="col-xs-6">
-		<h4 class="pull-left"><%= link_to user.username, show_user_path(id: user.id), class: "following" %></h4>
-	</div>
-	<div class="col-xs-6">
-		<span class="pull-right">
-    	<% if user_signed_in? %>
-    		<% unless current_user.id == user.id %>
-    		<% if current_user.following.include?(user.id) %>
-    			<%= link_to "Unfollow", unfollow_path(id: user.id), class: "btn btn-danger following" %>
-    		<% else %>    
-        		<%= link_to "Follow", now_following_path(id: user.id), class: "btn btn-primary following" %>
-    		<% end %>
-    		<% end %>
+<div class="user">
+<div class="row">
+<div class="col-xs-6">
+	<h4 class="pull-left"><%= link_to user.username, show_user_path(id: user.id), class: "following" %></h4>
+</div>
+<div class="col-xs-6">
+	<span class="pull-right">
+   	<% if user_signed_in? %>
+    	<% unless current_user.id == user.id %>
+    	<% if current_user.following.include?(user.id) %>
+    		<%= link_to "Unfollow", unfollow_path(id: user.id), class: "btn btn-danger following" %>
+    	<% else %>    
+       		<%= link_to "Follow", now_following_path(id: user.id), class: "btn btn-primary following" %>
     	<% end %>
-		</span>
-	</div>
-	</div>
-	</div>
-	<br>
+    	<% end %>
+    <% end %>
+	</span>
+</div>
+</div>
+</div>
+<br>
 <% end %>
