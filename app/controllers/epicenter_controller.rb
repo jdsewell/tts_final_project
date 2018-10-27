@@ -21,21 +21,20 @@ class EpicenterController < ApplicationController
     current_user.following.push(params[:id].to_i)
     current_user.save
 
-    redirect_to show_user_path(id: params[:id])
+    redirect_back(fallback_location: root_path)
   end
 
   def unfollow
     current_user.following.delete(params[:id].to_i)
     current_user.save
 
-    redirect_to show_user_path(id: params[:id])
+    redirect_back(fallback_location: root_path)
   end
 
   def following
     @user = User.find(params[:id])
-    @users = User.all
     @following = []
-    @users.each do |user|
+    User.all.each do |user|
       if @user.following.include?(user.id)
         @following.push(user)
       end
