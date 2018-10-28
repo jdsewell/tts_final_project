@@ -13,12 +13,14 @@
 <% end %>
 </center>
 <div class="bio">
-<center><p><%= @user.name %></p></center>
+<center><h3><%= @user.name %></h3></center>
 <p><%= @user.bio %></p>
 <div class="row">
-    <%= link_to "#{@user.username}'s Books", user_books_path(id: @user.id), class: "btn btn-default pull-left" %>
-    <%= link_to 'Follows', following_path(id: @user.id), class: "btn btn-default pull-right" %>
-    <%= link_to 'Followers', followers_path(id: @user.id), class: "btn btn-default pull-right" %>
+    <center>
+    <p><%= link_to "@#{@user.username}'s Books", user_books_path(id: @user.id), class: "btn btn-default" %></p>
+    <p><%= link_to 'Follows', following_path(id: @user.id), class: "btn btn-default" %>
+    <%= link_to 'Followers', followers_path(id: @user.id), class: "btn btn-default" %></p>
+    </center>
 </div>
 
 </p>
