@@ -74,6 +74,17 @@ class EpicenterController < ApplicationController
     end
   end
 
+  def shared_books
+    @user = User.find(params[:id])
+    @shared_books = []
+
+    Book.all.each do |book|
+      if @user.book_list.include?(book.id) && current_user.book_list.include?(book.id)
+        @shared_books.push(book)
+      end
+    end
+  end
+
   def add_book
     current_user.book_list.push(params[:id].to_i)
     current_user.save

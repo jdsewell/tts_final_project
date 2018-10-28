@@ -11,27 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= form.text_field :title, placeholder: "Title", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author %>
+  <div class="form-group">
+    <%= form.text_field :author, placeholder: "Author", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :page_length %>
     <%= form.number_field :page_length %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :rating %>
     <%= form.number_field :rating %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

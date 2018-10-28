@@ -11,9 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :message %>
-    <%= form.text_field :message %>
+  <div class="form-group">
+    <%= form.text_field :message, placeholder: "Your Post Here", class: "form-control post-field" %>
   </div>
 
   <div class="field">
@@ -21,6 +20,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
