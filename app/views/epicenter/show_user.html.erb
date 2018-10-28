@@ -1,23 +1,29 @@
-<h1>@<%= @user.username %>'s Profile</h1>
-
-<p><%= @user.name %></p>
-<p><%= @user.bio %></p>
-<p>
-    <%= link_to "#{@user.username}'s Books", user_books_path(id: @user.id), class: "btn btn-default" %>
-    <%= link_to 'Follows', following_path(id: @user.id) %>
-    <%= link_to 'Followers', followers_path(id: @user.id) %>
-</p>
-<p>
+<center>
+<% if @user.id == current_user.id %>
+    <h1>Your Profile</h1>
+<% else %>
+    <h1>@<%= @user.username %>'s Profile</h1>
     <% if user_signed_in? %>
     <% if current_user.following.include?(@user.id) %>
-        <%= link_to "Unfollow", unfollow_path(id: @user.id), class: "btn btn-danger following" %>
+        <p><%= link_to "Unfollow", unfollow_path(id: @user.id), class: "btn btn-danger following" %></p>
     <% else %>
-        <% if current_user.id != @user.id %>
-	    <%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary following" %>
-		<% end %>
+        <p><%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary following" %></p>
     <% end %>
     <% end %>
+<% end %>
+</center>
+<div class="bio">
+<center><p><%= @user.name %></p></center>
+<p><%= @user.bio %></p>
+<div class="row">
+    <%= link_to "#{@user.username}'s Books", user_books_path(id: @user.id), class: "btn btn-default pull-left" %>
+    <%= link_to 'Follows', following_path(id: @user.id), class: "btn btn-default pull-right" %>
+    <%= link_to 'Followers', followers_path(id: @user.id), class: "btn btn-default pull-right" %>
+</div>
+
 </p>
+</div>
+<br>
 <div class="row">
 <% @user.posts.each do |post| %>
     <div class="col-xs-6">
