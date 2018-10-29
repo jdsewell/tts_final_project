@@ -18,7 +18,10 @@
 <div class="row">
     <center>
     <p><%= link_to "@#{@user.username}'s Books", user_books_path(id: @user.id), class: "btn btn-default" %></p>
-    <p><%= link_to "Shared Books", shared_books_path(id: @user.id), class: "btn btn-default" %></p>
+    <% if @user.id != current_user.id %>
+        <p>You share <%= @shared_books_number %> books with <%= "@#{@user.username}" %></p>
+        <p><%= link_to "Shared Books", shared_books_path(id: @user.id), class: "btn btn-default" %></p>
+    <% end %>
     <p><%= link_to 'Follows', following_path(id: @user.id), class: "btn btn-default" %>
     <%= link_to 'Followers', followers_path(id: @user.id), class: "btn btn-default" %></p>
     </center>

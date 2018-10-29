@@ -15,6 +15,14 @@ class EpicenterController < ApplicationController
 
   def show_user
     @user = User.find(params[:id])
+    @shared_books_number = 0
+
+    Book.all.each do |book|
+      if @user.book_list.include?(book.id) && current_user.book_list.include?(book.id)
+        @shared_books_number += 1
+      end
+    end
+
   end
 
   def now_following
