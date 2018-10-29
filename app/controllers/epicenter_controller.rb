@@ -23,6 +23,11 @@ class EpicenterController < ApplicationController
       end
     end
 
+    @book = "book"
+    if @shared_books_number > 1
+      @book = "books"
+    end
+
   end
 
   def now_following

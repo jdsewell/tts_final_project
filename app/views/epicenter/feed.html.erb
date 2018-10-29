@@ -4,6 +4,7 @@
     		<h3>You're not following anyone! Take a look at the General Feed <%= link_to 'Here', index_path, class: "btn btn-default" %></h3>
     	<% end %>
 		<% if user_signed_in? %>
+			<div class="feed">	
 			<% @following_posts.each do |post| %>
 				<div class="post">
 					<h4><%= link_to post.user.username, show_user_path(id: post.user_id) %></h4>
@@ -11,6 +12,7 @@
 				</div>
 				<br>
 			<% end %>
+			</div>
 		<% end %>
 	<% end %>
 </div>
