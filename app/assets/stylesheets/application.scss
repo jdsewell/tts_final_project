@@ -37,6 +37,7 @@ nav .nav-button {
 nav .nav-button:hover {
 	color: black;
 }
+
 .body {
 	margin-top: 60px;
 	background-color: rgb(100,100,100);
@@ -57,9 +58,11 @@ nav .nav-button:hover {
 	margin-left: 20%;
 	margin-right: 20%;
 	padding: 1%;
-	background-color: rgb(50,50,150);
+	background-color: rgb(200,200,255);
 	border-width: 0px;
 	border-radius: 50px;
+	font-size: 24px;
+	padding: 3%;
 }
 .navbar {
 	/*background-color: rgb(100,100,200);*/
