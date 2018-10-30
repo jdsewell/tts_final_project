@@ -27,7 +27,36 @@ class EpicenterController < ApplicationController
     if @shared_books_number > 1
       @book = "books"
     end
+  end
 
+  def your_ratings
+    @liked_books = []
+    @disliked_books = []
+
+    Book.all.each do |book|
+      if current_user.liked_books.include?(book.id)
+        @liked_books.push(book)
+      end
+      if current_user.disliked_books.include?(book.id)
+        @disliked_books.push(book)
+      end
+    end
+  end
+
+  def like
+    current_user.disliked_books.delete(params[:id].to_i)
+    current_user.liked_books.push(params[:id].to_i)
+    current_user.save
+
+    redirect_back(fallback_location: root_path)
+  end
+
+  def dislike
+    current_user.liked_books.delete(params[:id].to_i)
+    current_user.disliked_books.push(params[:id].to_i)
+    current_user.save
+
+    redirect_back(fallback_location: root_path)
   end
 
   def now_following

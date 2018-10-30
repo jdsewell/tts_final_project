@@ -1,0 +1,21 @@
+<center><h1>Your Ratings</h1></center>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-6">
+		<center>
+		<h3>Liked Books</h3>
+		<% @liked_books.each do |book| %>
+			<%= book.title %>
+		<% end %>
+		</center>
+		</div>
+		<div class="col-xs-6">
+		<center>
+		<h3>Disliked Books</h3>
+		<% @disliked_books.each do |book| %>
+			<%= book.title %>
+		<% end %>
+		</center>
+		</div>
+	</div>
+</div>

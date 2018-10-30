@@ -11,6 +11,12 @@
 		<p><%= book.rating %></p>
 		<p>
     	<%= link_to "Remove", remove_path(id: book.id), class: "btn btn-danger following" %>
+    	<% unless current_user.liked_books.include?(book.id) %>
+    		<%= link_to "Like", like_path(id: book.id), class: "btn btn-primary following" %>
+    	<% end %>
+    	<% unless current_user.disliked_books.include?(book.id) %>
+    		<%= link_to "Dislike", dislike_path(id: book.id), class: "btn btn-primary following" %>
+    	<% end %>
 		</p>
 	</div>
 	<br>

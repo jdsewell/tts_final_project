@@ -16,15 +16,21 @@
 <center><h3><%= @user.name %></h3></center>
 <p><%= @user.bio %></p>
 <div class="row">
-    <center>
-    <p><%= link_to "@#{@user.username}'s Books", user_books_path(id: @user.id), class: "btn btn-default" %></p>
+    <div class="col-xs-6">
     <% if @user.id != current_user.id %>
-        <p>You share <%= @shared_books_number %> <%= @book %> with <%= "@#{@user.username}" %></p>
+        <h4>You share <%= @shared_books_number %> <%= @book %> with <%= "@#{@user.username}" %></h4>
         <p><%= link_to "Shared Books", shared_books_path(id: @user.id), class: "btn btn-default" %></p>
     <% end %>
-    <p><%= link_to 'Follows', following_path(id: @user.id), class: "btn btn-default" %>
-    <%= link_to 'Followers', followers_path(id: @user.id), class: "btn btn-default" %></p>
-    </center>
+    <p><%= link_to "@#{@user.username}'s Books", user_books_path(id: @user.id), class: "btn btn-default" %></p>
+    </div>
+    <div class="col-xs-6">
+    <div class="pull-right">
+    <%= link_to "Who @#{@user.username} Follows", following_path(id: @user.id), class: "btn btn-default" %>
+    <br>
+    <br>
+    <%= link_to "@#{@user.username}'s Followers", followers_path(id: @user.id), class: "btn btn-default" %>
+    </div>
+    </div>
 </div>
 
 </p>

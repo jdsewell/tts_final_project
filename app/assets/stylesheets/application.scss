@@ -20,6 +20,9 @@
 body {
 	background-color: rgb(50,50,50);
 }
+#notice {
+	color: white;
+}
 .navbar {
 	background-color: rgb(80,80,200);
 }
@@ -31,9 +34,8 @@ nav .nav-button {
 	margin-top: 2px;
 	margin-bottom: 2px;
 }
-.nav-button:hover {
-	background-color: black;
-	color: white;
+nav .nav-button:hover {
+	color: black;
 }
 .body {
 	margin-top: 60px;
@@ -90,8 +92,8 @@ nav .nav-button {
 	color: white;
 }
 .bio .row {
-	margin-left: 20%;
-	margin-right: 20%;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 .bio .btn {
 	margin-left: 1%;

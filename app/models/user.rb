@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :books
   serialize :following, Array
   serialize :book_list, Array
+  serialize :liked_books, Array
+  serialize :disliked_books, Array
   validates :username, presence: true, uniqueness: true
 end

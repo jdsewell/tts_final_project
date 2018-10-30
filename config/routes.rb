@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   get 'user_books' => 'epicenter#user_books'
   get 'your_books' => 'epicenter#your_books'
   get 'shared_books' => 'epicenter#shared_books'
-  
+  get 'your_ratings' => 'epicenter#your_ratings'
+  get 'like' => 'epicenter#like'
+  get 'dislike' => 'epicenter#dislike'
+
   get 'books' => 'books#index'
   get 'show_book' => 'books#show'
   get 'new_book' => 'books#new'
