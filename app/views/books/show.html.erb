@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-3">
+<div class="book">
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
@@ -29,6 +32,10 @@
     <% end %>
     <% end %>
 </p>
-
+</div>
+<h2>Users who like this book</h2>
+<% @liked_by.each do |user| %>
+  <p><%= user.username %></p>
+<% end %>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

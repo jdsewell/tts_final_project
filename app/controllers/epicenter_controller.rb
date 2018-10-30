@@ -47,6 +47,12 @@ class EpicenterController < ApplicationController
     current_user.disliked_books.delete(params[:id].to_i)
     current_user.liked_books.push(params[:id].to_i)
     current_user.save
+    Book.all.each do |book|
+      if current_user.liked_books.include?(book.id)
+        book.likes.push(current_user.id.to_i)
+      end
+      book.save
+    end
 
     redirect_back(fallback_location: root_path)
   end
