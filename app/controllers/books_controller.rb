@@ -9,6 +9,7 @@ class BooksController < ApplicationController
     @number_of_votes = 0
 
     @liked_by = []
+    @disliked_by = []
 
     User.all.each do |user|
       if user.liked_books.include?(@book.id)
@@ -20,6 +21,10 @@ class BooksController < ApplicationController
 
       if @book.likes.include?(user.id)
         @liked_by.push(user)
+        @disliked_by.delete(user)
+      elsif @book.dislikes.include?(user.id)
+        @disliked_by.push(user)
+        @liked_by.delete(user)
       end
     end
 	end
