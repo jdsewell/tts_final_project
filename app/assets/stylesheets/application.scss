@@ -75,10 +75,18 @@ nav .nav-button:hover {
 .row .col-xs-3 {
 	height: 350px;
 }
+.row .col-xs-4 {
+	height: 350px;
+}
 .book {
 	background-color: white;
 	width: 100%;
 	padding: 3%;
+}
+.book .like {
+	margin-right: 2%;
+	background-color: gray;
+	color: white;
 }
 .bio {
 	margin-right: 15%;

@@ -8,7 +8,15 @@
 		<h3><%= book.title %></h3>
 		<h5><%= book.author %></h5>
 		<p><%= book.page_length %> pages</p>
-		<p><%= book.rating %></p>
+		<p>
+      	<% if user_signed_in? %>
+        <% if current_user.book_list.include?(book.id) %>
+          <%= link_to "Remove", remove_path(id: book.id), class: "btn btn-danger following" %>
+        <% else %>
+          <%= link_to "Add", add_path(id: book.id), class: "btn btn-primary following" %>
+        <% end %>
+      	<% end %>
+      	</p>
 	</div>
 	</div>
 <% end %>
