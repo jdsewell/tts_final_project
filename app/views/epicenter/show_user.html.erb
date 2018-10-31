@@ -43,6 +43,15 @@
         <p><%= post.message %></p>
     </div>
     <br>
+    <p>
+        <% if user_signed_in? %>
+            <% if current_user.id == post.user_id %>
+                <%= link_to 'Edit', edit_post_path(post), class: "btn btn-default" %>
+                <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            <% end %>
+        <% end %>
+    </p>
+    <br>
     </div>
 <% end %>
 </div>

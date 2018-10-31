@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 <div class="container-fluid">
 <div class="row">
-<div class="col-xs-4" style="position:fixed">
+<div class="col-xs-4">
+
 <div class="book">
 <p>
   <strong>Title:</strong>
@@ -20,7 +21,11 @@
 
 <p>
   <strong>Rating:</strong>
-  <%= (@number_of_likes.to_f / @number_of_votes.to_f) * 100 %>% from <%= @number_of_votes %> votes.
+  <% if @number_of_votes == 0 %>
+    No votes yet
+  <% else %>
+    <%= (@number_of_likes.to_f / @number_of_votes.to_f) * 100 %>% from <%= @number_of_votes %> votes.
+  <% end %>
 </p>
 
 <p>
@@ -35,8 +40,8 @@
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
 </div>
+
 </div>
-<div class="col-xs-4"></div>
 <div class="col-xs-4">
 <center><h2>Users who like this book</h2></center>
 <center>

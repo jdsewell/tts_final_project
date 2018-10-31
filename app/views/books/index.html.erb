@@ -6,7 +6,7 @@
   <% @books.each do |book| %>
     <div class="col-xs-3">
       <div class="book">
-      <h3><%= book.title %></h3>
+      <h3><%= link_to book.title, show_book_path(id: book.id) %></h3>
       <h5><%= book.author %></h5>
       <p>Length: <%= book.page_length %> pages</p>
       <p>
