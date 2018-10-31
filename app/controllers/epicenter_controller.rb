@@ -24,8 +24,28 @@ class EpicenterController < ApplicationController
     end
 
     @book = "book"
-    if @shared_books_number > 1
+    if @shared_books_number != 1
       @book = "books"
+    end
+  end
+
+  def recommended
+    @following = []
+    User.all.each do |user|
+      if current_user.following.include?(user.id)
+        @following.push(user)
+      end
+    end
+
+    @recommended = []
+    Book.all.each do |book|
+      if current_user.book_list.include?(book.id) == false
+        @following.each do |user|
+          if user.liked_books.include?(book.id)
+            @recommended.push(book)
+          end
+        end
+      end
     end
   end
 

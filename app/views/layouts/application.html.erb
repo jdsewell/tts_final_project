@@ -29,6 +29,7 @@
           <% if user_signed_in? %>
             <li><%= link_to "Your Books", your_books_path(id: current_user.id), class: "nav-button" %></li>
             <li><%= link_to "Your Ratings", your_ratings_path, class: "nav-button" %></li>
+            <li><%= link_to "Recommended Books", recommended_path, class: "nav-button" %></li>
           <% end %>
           <li><%= link_to "All Books", books_path, class: "nav-button" %></li>
         </ul>
