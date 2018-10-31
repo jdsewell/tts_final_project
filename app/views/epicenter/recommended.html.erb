@@ -1,8 +1,13 @@
 <h1>Recommended For You</h1>
 <h3>These are books that you haven't read and that were liked by people you follow. Check them out!</h3>
-<div>
+<div class="row">
 	<% @recommended.each do |book| %>
-		<%= link_to book.title, show_book_path(id: book.id) %>
-		<%= book.author %>
+		<div class="col-xs-3">
+		<div class="book">
+			<h3><%= link_to book.title, show_book_path(id: book.id) %></h3>
+			<%= link_to "Add", add_path(id: book.id), class: "btn btn-primary following pull-right" %>
+			<h5><%= book.author %></h5>
+		</div>
+		</div>
 	<% end %>
 </div>

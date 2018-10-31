@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <% if user_signed_in? == false %>
   <div>
-    <h2>You can see the content of this site without a profile, but you'll have to Log In or Sign Up for full functionality</h2>
+    <h2>Please Create an Account or Log In to use this site</h2>
   </div>
   <%= link_to "Log In", new_user_session_path, class: "btn btn-default" %><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default" %>
 <% end %>

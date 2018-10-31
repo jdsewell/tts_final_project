@@ -9,6 +9,9 @@
 					Your Feed
 					<%= link_to "All Posts", index_path, class: "btn btn-default pull-right" %>
 				</h1>
+			<% if @following_posts.empty? %>
+				<h2 class="post">Nothing to see here</h2>
+			<% end %>
 			<% @following_posts.each do |post| %>
 				<div class="post">
 					<h4><%= link_to post.user.username, show_user_path(id: post.user_id) %></h4>
