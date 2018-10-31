@@ -20,16 +20,13 @@ Book.create([{ title: 'The Hobbit', author: 'JRR Tolkien', page_length: 310 },
 		)
 end
 
-10.times do
-	Post.create(
-		message: Faker::Lorem.paragraph(rand(30)),
-		user_id: 2
-		)
-end
+@users = User.all
 
-10.times do
-	Post.create(
+@users.each do |user|
+	3.times do
+		Post.create(
 		message: Faker::Lorem.paragraph(rand(30)),
-		user_id: 1
+		user_id: user.id
 		)
+	end
 end
