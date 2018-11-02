@@ -31,6 +31,9 @@ body {
 }
 .navbar {
 	background-color: rgb(80,80,200);
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(0,0,100);
 }
 nav .nav-button {
 	background-color: black;
@@ -78,7 +81,8 @@ nav .nav-button:hover {
 .post {
 	background-color: white;
 	padding: 2%;
-	border-width: 0px;
+	border-width: 2px;
+	border-color: black;
 	border-style: solid;
 	border-radius: 30px;
 	height: 175px;
