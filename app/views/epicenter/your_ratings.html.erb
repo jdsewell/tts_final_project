@@ -6,7 +6,7 @@
 		<% @liked_books.each do |book| %>
 			<div class="book">
 			<h3><%= link_to book.title, show_book_path(id: book.id) %></h3>
-			<%= link_to "Dislike", dislike_path(id: book.id), class: "btn btn-primary following pull-right" %>
+			<%= link_to "Dislike", dislike_path(id: book.id), remote: true, class: "btn btn-primary following pull-right" %>
 			<p><%= book.author %></p>
 			</div>
 			<br>
@@ -17,7 +17,7 @@
 		<% @disliked_books.each do |book| %>
 			<div class="book">
 			<h3><%= book.title %></h3>
-			<%= link_to "Like", like_path(id: book.id), class: "btn btn-primary following pull-right" %>
+			<%= link_to "Like", like_path(id: book.id), remote: true, class: "btn btn-primary following pull-right" %>
 			<p><%= book.author %></p>
 			</div>
 			<br>

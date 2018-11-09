@@ -11,9 +11,9 @@
 		<p>
       	<% if user_signed_in? %>
         <% if current_user.book_list.include?(book.id) %>
-          <%= link_to "Remove", remove_path(id: book.id), class: "btn btn-danger following" %>
+          <%= link_to "Remove", remove_path(id: book.id), remote: true, class: "btn btn-danger following" %>
         <% else %>
-          <%= link_to "Add", add_path(id: book.id), class: "btn btn-primary following" %>
+          <%= link_to "Add", add_path(id: book.id), remote: true, class: "btn btn-primary following" %>
         <% end %>
       	<% end %>
       	</p>

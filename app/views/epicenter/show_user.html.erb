@@ -5,9 +5,9 @@
     <h1>@<%= @user.username %>'s Profile</h1>
     <% if user_signed_in? %>
     <% if current_user.following.include?(@user.id) %>
-        <p><%= link_to "Unfollow", unfollow_path(id: @user.id), class: "btn btn-danger following" %></p>
+        <p><%= link_to "Unfollow", unfollow_path(id: @user.id), remote: true, class: "btn btn-danger following" %></p>
     <% else %>
-        <p><%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary following" %></p>
+        <p><%= link_to "Follow", now_following_path(id: @user.id), remote: true, class: "btn btn-primary following" %></p>
     <% end %>
     <% end %>
 <% end %>
@@ -33,7 +33,6 @@
     </div>
 </div>
 
-</p>
 </div>
 <br>
 <div class="row">

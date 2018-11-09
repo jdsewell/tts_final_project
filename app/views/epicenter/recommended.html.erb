@@ -5,7 +5,7 @@
 		<div class="col-xs-3">
 		<div class="book">
 			<h3><%= link_to book.title, show_book_path(id: book.id) %></h3>
-			<%= link_to "Add", add_path(id: book.id), class: "btn btn-primary following pull-right" %>
+			<%= link_to "Add", add_path(id: book.id), remote: true, class: "btn btn-primary following pull-right" %>
 			<h5><%= book.author %></h5>
 		</div>
 		</div>
