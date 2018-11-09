@@ -1,28 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Books</h1>
-<%= link_to 'New Book', new_book_path %>
+<center><h1>Books</h1></center>
+<center><%= link_to 'New Book', new_book_path, remote: true, class: "btn btn-primary" %></center>
+<div class="new-book" id="book-form" style="display:none;"></div>
 <div class="row">
-  <% @books.each do |book| %>
-    <div class="col-xs-3">
-      <div class="book">
-      <h3><%= link_to book.title, show_book_path(id: book.id) %></h3>
-      <h5><%= book.author %></h5>
-      <p>Length: <%= book.page_length %> pages</p>
-      <p>
-      <% if user_signed_in? %>
-        <% if current_user.book_list.include?(book.id) %>
-          <%= link_to "Remove", remove_path(id: book.id), remote: true, class: "btn btn-danger following" %>
-        <% else %>
-          <%= link_to "Add", add_path(id: book.id), remote: true, class: "btn btn-primary following" %>
-        <% end %>
-      <% end %>
-      </p>
-      <%= link_to 'Show', book %>
-      <%= link_to 'Edit', edit_book_path(book) %>
-      <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    </div>
-  <% end %>
+  <div id="books">
+    <%= render @books %>
   </div>
 </div>

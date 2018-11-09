@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+	before_action :all_books, only: [:index, :create]
 	before_action :set_book, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -32,17 +33,8 @@ class BooksController < ApplicationController
 		@book = Book.new
 	end
   	def create
-    	@book = Book.new(book_params)
-
-    	respond_to do |format|
-      		if @book.save
-        		format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        		format.json { render :show, status: :created, location: @book }
-      		else
-        		format.html { render :new }
-        		format.json { render json: @book.errors, status: :unprocessable_entity }
-      		end
-    	end
+    	# @book = Book.new(book_params)
+			@book = Book.create(book_params)
   	end
   	def update
     	respond_to do |format|
@@ -64,7 +56,10 @@ class BooksController < ApplicationController
   	end
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_book
+		def all_books
+			@books = Book.all
+		end
+		def set_book
       @book = Book.find(params[:id])
     end
 

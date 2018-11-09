@@ -1,0 +1,19 @@
+<div class="col-xs-3">
+  <div class="book">
+  <h3><%= link_to book.title, show_book_path(id: book.id) %></h3>
+  <h5><%= book.author %></h5>
+  <p>Length: <%= book.page_length %> pages</p>
+  <p>
+  <% if user_signed_in? %>
+    <% if current_user.book_list.include?(book.id) %>
+      <%= link_to "Remove", remove_path(id: book.id), remote: true, class: "btn btn-danger following" %>
+    <% else %>
+      <%= link_to "Add", add_path(id: book.id), remote: true, class: "btn btn-primary following" %>
+    <% end %>
+  <% end %>
+  </p>
+  <%= link_to 'Show', book %>
+  <%= link_to 'Edit', edit_book_path(book) %>
+  <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>
