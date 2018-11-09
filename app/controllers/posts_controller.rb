@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
+  before_action :all_posts, only: [:index, :create]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   # GET /posts
   # GET /posts.json
-  
+
   def users
     @users = User.all
   end
@@ -28,17 +29,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to feed_path, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+    # @post = Post.new(post_params)
+    @post = Post.create(post_params)
   end
 
   # PATCH/PUT /posts/1
@@ -67,6 +59,9 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def all_posts
+      @posts = Post.all
+    end
     def set_post
       @post = Post.find(params[:id])
     end
