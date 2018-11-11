@@ -12,13 +12,14 @@
 			<% if @following_posts.empty? %>
 				<h2 class="post">Nothing to see here</h2>
 			<% end %>
-			<% @following_posts.each do |post| %>
-				<div class="post">
-					<h4><%= link_to post.user.username, show_user_path(id: post.user_id) %></h4>
-					<p><%= post.message.html_safe %></p>
-				</div>
-				<br>
+			<% if user_signed_in? %>
+				<%= link_to 'New Post', new_post_path, remote: true, class: "btn btn-primary" %>
+				<div id="post-form" style="display:none;"></div>
 			<% end %>
+			<h2>Posts</h2>
+			<div id="posts">
+			  <%= render @posts %>
+			</div>
 			</div>
 		<% end %>
 	<% end %>

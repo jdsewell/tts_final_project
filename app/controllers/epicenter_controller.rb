@@ -11,6 +11,7 @@ class EpicenterController < ApplicationController
     else
       redirect_to index_path
     end
+    @posts = @following_posts
   end
 
   def show_user
