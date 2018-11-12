@@ -2,22 +2,7 @@
 	<h2>No Books</h2>
 <% end %>
 <div class="row">
-<% @book_list.each do |book| %>
-	<div class="col-xs-4">
-	<div class="book">
-		<h3><%= link_to book.title, show_book_path(id: book.id) %></h3>
-		<h5><%= book.author %></h5>
-		<p><%= book.page_length %> pages</p>
-		<p>
-      	<% if user_signed_in? %>
-        <% if current_user.book_list.include?(book.id) %>
-          <%= link_to "Remove", remove_path(id: book.id), remote: true, class: "btn btn-danger following" %>
-        <% else %>
-          <%= link_to "Add", add_path(id: book.id), remote: true, class: "btn btn-primary following" %>
-        <% end %>
-      	<% end %>
-      	</p>
+	<div id="books">
+		<%= render @book_list %>
 	</div>
-	</div>
-<% end %>
 </div>
