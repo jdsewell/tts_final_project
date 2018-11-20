@@ -31,9 +31,9 @@
 <p>
     <% if user_signed_in? %>
     <% if current_user.book_list.include?(@book.id) %>
-        <%= link_to "Remove", remove_path(id: @book.id), remote: true, class: "btn btn-danger following" %>
+        <%= link_to "Remove", remove_path(id: @book.id), class: "btn btn-danger following" %>
     <% else %>
-	    <%= link_to "Add", add_path(id: @book.id), remote: true, class: "btn btn-primary following" %>
+	    <%= link_to "Add", add_path(id: @book.id), class: "btn btn-primary following" %>
     <% end %>
     <% end %>
 </p>
@@ -55,9 +55,9 @@
   <div class="pull-right">
   <% if user_signed_in? %>
     <% if current_user.following.include?(user.id) %>
-        <%= link_to "Unfollow", unfollow_path(id: user.id), remote: true, class: "btn btn-danger following" %>
+        <%= link_to "Unfollow", unfollow_path(id: user.id), class: "btn btn-danger following" %>
     <% elsif current_user.id != user.id %>
-        <%= link_to "Follow", now_following_path(id: user.id), remote: true, class: "btn btn-primary following" %>
+        <%= link_to "Follow", now_following_path(id: user.id), class: "btn btn-primary following" %>
     <% end %>
   <% end %>
   </div>
