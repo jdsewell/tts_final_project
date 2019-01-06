@@ -4,9 +4,9 @@ This is a web application that I am working on as a final project for Tech Talen
 
 Things to take note of if you are interested in cloning or forking this:
 
-* Ruby version 2.5.1
+* Ruby version 2.5.3
 
-* Rails version 5.2.1
+* Rails version 5.2.2
 
 * If you do not already have Ruby and Rails on your system, see the following links for instructions for your operating system:
 	* RVM: https://rvm.io/rvm/install
