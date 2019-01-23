@@ -2,7 +2,7 @@
 	<% if user_signed_in? %>
 		<% if current_user.following.empty? %>
     		<center><h3>You're not following anyone! Take a look at the General Feed <%= link_to 'Here', index_path, class: "btn btn-default" %></h3></center>
-    	<% end %>
+    <% end %>
 		<% if user_signed_in? %>
 			<div class="feed">
 				<h1>
