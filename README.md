@@ -4,7 +4,7 @@ This is a web application that I am working on as a final project for Tech Talen
 
 Things to take note of if you are interested in cloning or forking this:
 
-* Ruby version 2.5.3
+* Ruby version 2.6.0
 
 * Rails version 5.2.2
 
@@ -13,7 +13,7 @@ Things to take note of if you are interested in cloning or forking this:
 	* Ruby: https://www.ruby-lang.org/en/documentation/installation/
 	* Rails: https://installrails.com/
 
-* You can seed the database with fake content in order to get aquainted with how it works. To do this, in your terminal, navigate into the directory of the project and run the commands "rails db:migrate" and "rails db: seed". 
+* You can seed the database with fake content in order to get aquainted with how it works. To do this, in your terminal, navigate into the directory of the project and run the commands "rails db:migrate" and "rails db: seed".
 
 * To view the application, in the project directory run "rails s" and go to localhost:3000 in your web browser.
 
