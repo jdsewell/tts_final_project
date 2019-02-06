@@ -1,6 +1,6 @@
 # README
 
-This is a web application that I am working on as a final project for Tech Talent South's Code Immersion course. The application is a book-focused social media site in the style of Goodreads and Twitter. Users can create their own booklists, create posts, follow other users, and discuss their books with other users. The site is built with the Ruby on Rails framework.
+This is a web application that was begun as a final project for Tech Talent South's Code Immersion course. The application is a book-focused social media site in the style of Goodreads and Twitter. Users can create their own booklists, create posts, follow other users, and discuss their books with other users. The site is built with the Ruby on Rails framework. Ajax is utilized to allow users to dynamically add posts and have those posts immediately show up in their feed, without having to reload or redirect to the page.
 
 Things to take note of if you are interested in cloning or forking this:
 
